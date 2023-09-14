@@ -5,9 +5,19 @@ import "../styles/Body.css";
 const Body = () => {
   return (
     <div className="body">
-      {restaurantData.map((restaurant) => (
-        <Restaurant key={restaurant.info.id} restData={restaurant.info} />
-      ))}
+      <div className="filter">
+        <p>
+          Sort by{" "}
+          <span className="top-rated" onClick={topRatedRestaurants}>
+            Top rated
+          </span>
+        </p>
+      </div>
+      <div className="restaurant-layout">
+        {restaurantData.map((restaurant) => (
+          <Restaurant key={restaurant.info.id} restData={restaurant.info} />
+        ))}
+      </div>
     </div>
   );
 };
