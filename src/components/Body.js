@@ -1,5 +1,6 @@
 import restaurantData from "../../utils/restaurantData";
 import Restaurant from "./Restaurant";
+import "../styles/Body.css";
 
 const Body = () => {
   return (
