@@ -20,12 +20,13 @@
 
 .nav-bar > ul {
   display: flex;
+  flex-direction: row;
+  gap: 60px;
   list-style-type: none;
   align-items: center;
 }
 
 .nav-bar > ul > li {
-  padding-left: 60px;
   font-size: 20px;
   text-transform: capitalize;
   font-weight: 600;
