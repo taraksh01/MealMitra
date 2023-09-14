@@ -1,4 +1,5 @@
 import { CDN_URL } from "../../utils/constants";
+import "../styles/Restaurant.css";
 
 const Restaurant = ({ restData }) => {
   const {
@@ -20,9 +21,9 @@ const Restaurant = ({ restData }) => {
         <h2 className="restaurant-name">{name}</h2>
         <p className="cuisines">{cuisines.join(", ")}</p>
         <p className="costForTwo">{costForTwo}</p>
-        <div>
-          <p className="avgRatingString">{avgRatingString}</p>
-          <p className="totalRatingsString">{totalRatingsString}</p>
+        <div className="restaurant-rating">
+          <p className="avgRatingString">⭐️ {avgRatingString}</p>
+          <p className="totalRatingsString">{totalRatingsString} ratings</p>
         </div>
       </div>
     </div>
