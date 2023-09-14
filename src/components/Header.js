@@ -1,8 +1,10 @@
+import "../styles/Header.css";
+
 const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <h1 className="logo-title">MealMitrate</h1>
+        <h1 className="logo-title">MealMitra</h1>
       </div>
       <nav className="nav-bar">
         <ul>
