@@ -1,8 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 const App = () => {
-  return <h1>MealMitra</h1>;
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
 };
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
