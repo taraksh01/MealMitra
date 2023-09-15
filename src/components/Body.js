@@ -1,6 +1,7 @@
 import Restaurant from "./Restaurant";
 import { useState, useEffect } from "react";
 import "../styles/Body.css";
+import ShimmerContainer from "./Shimmer";
 
 const Body = () => {
   const [restaurantInfo, setRestaurantInfo] = useState([]);
@@ -35,11 +36,18 @@ const Body = () => {
           </span>
         </p>
       </div>
-      <div className="restaurant-layout">
-        {restaurantInfo.map((restaurant) => (
-          <Restaurant key={restaurant?.info?.id} restData={restaurant?.info} />
-        ))}
-      </div>
+      {restaurantInfo.length == 0 ? (
+        <ShimmerContainer />
+      ) : (
+        <div className="restaurant-layout">
+          {restaurantInfo.map((restaurant) => (
+            <Restaurant
+              key={restaurant?.info?.id}
+              restData={restaurant?.info}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
