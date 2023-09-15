@@ -8,9 +8,38 @@
 }
 
 .filter {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
   margin: 20px 0;
   font-size: 20px;
-  align-self: center;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.search > input {
+  font-size: 22px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid orange;
+}
+
+.search-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 10px;
+  border-radius: 12px;
+}
+
+.search-button:hover {
+  background-color: #dddddd;
 }
 
 .top-rated {
@@ -21,7 +50,7 @@
   border-radius: 6px;
 }
 
-.restaurant-layout{
+.restaurant-layout {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
