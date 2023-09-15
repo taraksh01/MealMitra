@@ -7,7 +7,7 @@ const Body = () => {
   const [restaurantInfo, setRestaurantInfo] = useState(restaurantData);
 
   const topRatedRestaurants = () => {
-    const topRated = restaurantInfo.filter((r) => r.info.avgRating >= 4.5);
+    const topRated = restaurantInfo.filter((r) => r.info.avgRating >= 4.0);
     setRestaurantInfo(topRated);
   };
   
@@ -23,7 +23,7 @@ const Body = () => {
       </div>
       <div className="restaurant-layout">
         {restaurantInfo.map((restaurant) => (
-          <Restaurant key={restaurant.info.id} restData={restaurant.info} />
+          <Restaurant key={restaurant?.info?.id} restData={restaurant?.info} />
         ))}
       </div>
     </div>
