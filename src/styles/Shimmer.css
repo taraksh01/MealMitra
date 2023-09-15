@@ -1,0 +1,28 @@
+.shimmer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.shimmer {
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+  height: 300px;
+  margin: 4px;
+}
+
+.shimmer-image {
+  height: 50%;
+  width: 100%;
+  background-color: #f2f2f2;
+  border-radius: 16px;
+  margin: 4px 0;
+}
+
+.shimmer-text {
+  background-color: #f5f5f5;
+  height: 20px;
+  width: 96%;
+  margin: 4px auto;
+}
