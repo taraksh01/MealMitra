@@ -5,6 +5,8 @@ import "../styles/Body.css";
 
 const Body = () => {
   const [restaurantInfo, setRestaurantInfo] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [filteredResult, setFilteredResult] = useState([]);
 
   useEffect(() => {
     fetchRestaurantData();
@@ -22,8 +24,15 @@ const Body = () => {
   };
 
   const topRatedRestaurants = () => {
-    const topRated = restaurantInfo.filter((r) => r.info.avgRating >= 4.0);
+    const topRated = restaurantInfo.filter((r) => r?.info?.avgRating >= 4.0);
     setRestaurantInfo(topRated);
+  };
+
+  const handleSearch = () => {
+    const filtered = restaurantInfo.filter((r) =>
+      r?.info?.name?.toLowerCase().includes(searchText?.toLowerCase())
+    );
+    setRestaurantInfo(filtered);
   };
 
   return (
@@ -36,15 +45,22 @@ const Body = () => {
           </span>
         </p>
         <div className="search">
-          <input type="text" placeholder="search here" value={""} />
-          <button className="search-button">search</button>
+          <input
+            type="text"
+            placeholder="search here"
+            value={searchText}
+            onChange={() => setSearchText(event.target.value)}
+          />
+          <button className="search-button" onClick={handleSearch}>
+            search
+          </button>
         </div>
       </div>
       {restaurantInfo?.length == 0 ? (
         <ShimmerContainer />
       ) : (
         <div className="restaurant-layout">
-          {restaurantInfo.map((restaurant) => (
+          {restaurantInfo?.map((restaurant) => (
             <Restaurant
               key={restaurant?.info?.id}
               restData={restaurant?.info}
