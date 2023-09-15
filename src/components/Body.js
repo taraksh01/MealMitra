@@ -1,16 +1,30 @@
-import restaurantData from "../../utils/restaurantData";
 import Restaurant from "./Restaurant";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Body.css";
 
 const Body = () => {
-  const [restaurantInfo, setRestaurantInfo] = useState(restaurantData);
+  const [restaurantInfo, setRestaurantInfo] = useState([]);
+
+  useEffect(() => {
+    fetchRestaurantData();
+  }, []);
+
+  const fetchRestaurantData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data?.json();
+    setRestaurantInfo(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
   const topRatedRestaurants = () => {
     const topRated = restaurantInfo.filter((r) => r.info.avgRating >= 4.0);
     setRestaurantInfo(topRated);
   };
-  
+
   return (
     <div className="body">
       <div className="filter">
