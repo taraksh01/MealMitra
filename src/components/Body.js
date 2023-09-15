@@ -6,7 +6,7 @@ import "../styles/Body.css";
 const Body = () => {
   const [restaurantInfo, setRestaurantInfo] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [filteredResult, setFilteredResult] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   useEffect(() => {
     fetchRestaurantData();
@@ -21,6 +21,9 @@ const Body = () => {
     setRestaurantInfo(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setFilteredRestaurant(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   const topRatedRestaurants = () => {
@@ -32,7 +35,7 @@ const Body = () => {
     const filtered = restaurantInfo.filter((r) =>
       r?.info?.name?.toLowerCase().includes(searchText?.toLowerCase())
     );
-    setRestaurantInfo(filtered);
+    setFilteredRestaurant(filtered);
   };
 
   return (
@@ -60,7 +63,7 @@ const Body = () => {
         <ShimmerContainer />
       ) : (
         <div className="restaurant-layout">
-          {restaurantInfo?.map((restaurant) => (
+          {filteredRestaurant.map((restaurant) => (
             <Restaurant
               key={restaurant?.info?.id}
               restData={restaurant?.info}
