@@ -29,9 +29,23 @@
 .nav-bar > ul > li {
   font-size: 20px;
   text-transform: capitalize;
-  font-weight: 600;
 }
 
 .nav-bar > ul > li:hover {
   color: #ffa500;
+}
+
+.log-status {
+  border: none;
+  padding: 0 6px;
+  color: orange;
+  background-color: #f0f0f0;
+  text-transform: capitalize;
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.log-status:hover {
+  cursor: pointer;
+  background-color: #e7e7e7;
 }
