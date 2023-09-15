@@ -1,7 +1,7 @@
 import Restaurant from "./Restaurant";
 import { useState, useEffect } from "react";
-import "../styles/Body.css";
 import ShimmerContainer from "./Shimmer";
+import "../styles/Body.css";
 
 const Body = () => {
   const [restaurantInfo, setRestaurantInfo] = useState([]);
@@ -35,8 +35,12 @@ const Body = () => {
             Top rated
           </span>
         </p>
+        <div className="search">
+          <input type="text" placeholder="search here" value={""} />
+          <button className="search-button">search</button>
+        </div>
       </div>
-      {restaurantInfo.length == 0 ? (
+      {restaurantInfo?.length == 0 ? (
         <ShimmerContainer />
       ) : (
         <div className="restaurant-layout">
