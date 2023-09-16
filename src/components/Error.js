@@ -2,7 +2,6 @@ import { useRouteError } from "react-router-dom";
 
 function Error() {
   const error = useRouteError();
-  console.log(error);
   return (
     <div
       className="error"
@@ -18,9 +17,9 @@ function Error() {
         Somthing went wrong
       </h1>
       <h2>
-        {error.status}: Page {error.statusText}
+        {error?.status}: Page {error?.statusText}
       </h2>
-      <p>{error.error.message}</p>
+      <p>{error?.error?.message}</p>
     </div>
   );
 }
