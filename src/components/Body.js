@@ -63,7 +63,7 @@ const Body = () => {
         <ShimmerContainer />
       ) : (
         <div className="restaurant-layout">
-          {filteredRestaurant.map((restaurant) => (
+          {filteredRestaurant?.map((restaurant) => (
             <Restaurant
               key={restaurant?.info?.id}
               restData={restaurant?.info}
