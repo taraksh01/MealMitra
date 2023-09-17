@@ -47,7 +47,7 @@ const RestaurantMenu = () => {
           <p>{costForTwoMessage}</p>
         </div>
         <div className="rating">
-          <p>{avgRating}</p>
+          <p>{avgRating} ⭐️</p>
           <p>{totalRatingsString}</p>
         </div>
       </div>
@@ -56,9 +56,10 @@ const RestaurantMenu = () => {
       <div className="offers-menu">
         {offers?.map((offer, index) => (
           <div className="offer" key={index}>
-            <h3 className="offers-title">{offer?.info?.header}</h3>
-            <p className="coupon-code">{offer?.info?.couponCode}</p>
-            <p className="description">{offer?.info?.description}</p>
+            <p className="offer-title">{offer?.info?.header}</p>
+            <p>
+              {offer?.info?.couponCode} | {offer?.info?.description}
+            </p>
           </div>
         ))}
       </div>
