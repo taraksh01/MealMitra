@@ -20,12 +20,12 @@ li {
   list-style-type: none;
 }
 
-a {
+.link {
   text-decoration: none;
   color: #fff;
 }
 
-a:hover {
+.link:hover {
   color: #ffa500;
 }
 
