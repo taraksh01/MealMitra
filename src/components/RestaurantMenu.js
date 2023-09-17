@@ -2,6 +2,7 @@ import Shimmer from "../components/Shimmer";
 import { useParams } from "react-router-dom";
 import { MENU_API_URL } from "../../utils/constants";
 import { useEffect, useState } from "react";
+import "../styles/RestaurantMenu.css";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -51,6 +52,7 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
+      <div className="dash"></div>
       <div className="offers-menu">
         {offers?.map((offer, index) => (
           <div className="offer" key={index}>
@@ -61,6 +63,7 @@ const RestaurantMenu = () => {
         ))}
       </div>
 
+      <div className="dash"></div>
       <div className="menu">
         {menus
           ?.filter((menu, index) => index > 0 && index < menus.length - 1)
