@@ -52,6 +52,13 @@
 
 .restaurant-layout {
   display: flex;
-  justify-content: space-around;
+  gap: 20px;
   flex-wrap: wrap;
+}
+
+.restaurant-card {
+  width: 18%;
+  margin: 4px;
+  color: black;
+  text-decoration: none;
 }

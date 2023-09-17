@@ -81,8 +81,3 @@ const Body = () => {
 };
 
 export default Body;
-{
-  /* <Link key={restaurant?.info?.id} to={"/restaurants/" + restaurant?.info?.id}>
-  <Restaurant restData={restaurant?.info} />
-</Link>; */
-}
