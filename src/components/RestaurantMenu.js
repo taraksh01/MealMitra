@@ -1,7 +1,8 @@
+import Shimmer from "../components/Shimmer";
 import { useEffect, useState } from "react";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState([]);
+  const [resInfo, setResInfo] = useState(null);
 
   useEffect(() => {
     fetchMenu();
@@ -16,6 +17,18 @@ const RestaurantMenu = () => {
     // console.log(json?.data?.cards);
     setResInfo(json?.data?.cards);
   };
+
+  if (!resInfo) return <Shimmer />;
+
+  const {
+    name,
+    areaName,
+    costForTwoMessage,
+    cuisines,
+    avgRating,
+    feeDetails,
+    totalRatingsString,
+  } = resInfo[0]?.card?.card?.info;
 
   return <div className="restaurant-menu">RestaurantMenu</div>;
 };
