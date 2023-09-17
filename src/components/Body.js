@@ -1,5 +1,6 @@
 import Restaurant from "./Restaurant";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ShimmerContainer from "./Shimmer";
 import "../styles/Body.css";
 
@@ -64,10 +65,12 @@ const Body = () => {
       ) : (
         <div className="restaurant-layout">
           {filteredRestaurant?.map((restaurant) => (
-            <Restaurant
+            <Link
               key={restaurant?.info?.id}
-              restData={restaurant?.info}
-            />
+              to={"/restaurants/" + restaurant?.info?.id}
+            >
+              <Restaurant restData={restaurant?.info} />
+            </Link>
           ))}
         </div>
       )}
@@ -76,3 +79,8 @@ const Body = () => {
 };
 
 export default Body;
+{
+  /* <Link key={restaurant?.info?.id} to={"/restaurants/" + restaurant?.info?.id}>
+  <Restaurant restData={restaurant?.info} />
+</Link>; */
+}
