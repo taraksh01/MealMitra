@@ -29,7 +29,8 @@ const Body = () => {
 
   const topRatedRestaurants = () => {
     const topRated = restaurantInfo.filter((r) => r?.info?.avgRating >= 4.0);
-    setRestaurantInfo(topRated);
+    console.log(topRated);
+    setFilteredRestaurant(topRated);
   };
 
   const handleSearch = () => {
@@ -66,6 +67,7 @@ const Body = () => {
         <div className="restaurant-layout">
           {filteredRestaurant?.map((restaurant) => (
             <Link
+              className="restaurant-card"
               key={restaurant?.info?.id}
               to={"/restaurants/" + restaurant?.info?.id}
             >
