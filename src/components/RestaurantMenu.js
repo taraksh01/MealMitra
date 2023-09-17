@@ -38,7 +38,7 @@ const RestaurantMenu = () => {
 
   return (
     <div className="restaurant-menu">
-      <div className="restaurant-card">
+      <div className="restaurant-menu-details">
         <div className="detail">
           <h2 className="name">{name}</h2>
           <p>{cuisines.join(",")}</p>
