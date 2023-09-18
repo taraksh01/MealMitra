@@ -1,4 +1,4 @@
-import Restaurant from "./Restaurant";
+import Restaurant, { LabeledRestaurant } from "./Restaurant";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ShimmerContainer from "./Shimmer";
@@ -8,6 +8,8 @@ const Body = () => {
   const [restaurantInfo, setRestaurantInfo] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+  const PromotedRestaurant = LabeledRestaurant(Restaurant);
 
   useEffect(() => {
     fetchRestaurantData();
@@ -71,7 +73,12 @@ const Body = () => {
               key={restaurant?.info?.id}
               to={"/restaurants/" + restaurant?.info?.id}
             >
-              <Restaurant restData={restaurant?.info} />
+              {restaurant?.info?.veg ? (
+                <PromotedRestaurant restData={restaurant?.info} />
+              ) : (
+                <Restaurant restData={restaurant?.info} />
+              )}
+              {console.log(restaurant.info)}
             </Link>
           ))}
         </div>
