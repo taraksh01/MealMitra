@@ -33,3 +33,12 @@
   display: flex;
   gap: 12px;
 }
+
+.promoted-restaurant {
+  position: absolute;
+  background-color: orange;
+  z-index: 1;
+  font-size: 20px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
