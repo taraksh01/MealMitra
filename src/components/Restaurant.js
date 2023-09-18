@@ -30,4 +30,15 @@ const Restaurant = ({ restData }) => {
   );
 };
 
+export const LabeledRestaurant = (Restaurant) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="promoted-restaurant">Veg only</label>
+        <Restaurant {...props} />
+      </div>
+    );
+  };
+};
+
 export default Restaurant;
