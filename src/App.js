@@ -8,26 +8,31 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
+import Cart from "./components/Cart";
 const App = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </Provider>
   );
 };
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <App />, 
+    element: <App />,
     children: [
       { path: "/", element: <Body /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/restaurants/:restaurantId", element: <RestaurantMenu /> },
+      { path: "/cart", element: <Cart /> },
     ],
     errorElement: <Error />,
   },

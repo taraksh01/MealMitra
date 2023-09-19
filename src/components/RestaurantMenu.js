@@ -2,11 +2,11 @@ import Shimmer from "../components/Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
 import "../styles/RestaurantMenu.css";
+import Item from "./Item";
 
 const RestaurantMenu = () => {
   const { restaurantId } = useParams();
   const resInfo = useRestaurantMenu(restaurantId);
-
   if (!resInfo) return <Shimmer />;
   const {
     name,
@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
     <div className="restaurant-menu">
       <div className="restaurant-menu-details">
         <div className="detail">
-          <h2 className="name">{name}</h2>
+          <h2 className="name font-bold text-2xl">{name}</h2>
           <p>{cuisines.join(",")}</p>
           <p>{areaName}</p>
           <p>{feeDetails.message}</p>
@@ -55,20 +55,29 @@ const RestaurantMenu = () => {
         {menus
           ?.filter((menu, index) => index > 0 && index < menus.length - 1)
           ?.map((menu, index) => (
-            <div className="menu" key={index}>
-              <h1 className="menus-title">{menu?.card?.card?.title}</h1>
-              <div>
-                {menu?.card?.card?.itemCards?.map((item) => (
-                  // console.log(item?.card?.info)
-                  <div className="item" key={item?.card?.info?.id}>
-                    <h4>{item?.card?.info?.name}</h4>
-                    <p>{item?.card?.info?.price}</p>
-                    <p>{item?.card?.info?.category}</p>
-                    <p>{item?.card?.info?.description}</p>
-                    <p>{item?.card?.info?.itemAttribute?.vegClassifier}</p>
-                  </div>
-                ))}
+            <div className="menu bg-slate-50 shadow-lg" key={index}>
+              <div
+                onClick={() => {
+                  console.log("menu");
+                }}
+                className="menus-title text-lg cursor-pointer font-bold bg-white py-4 my-2 flex justify-between "
+              >
+                <span className="pl-1">
+                  {menu?.card?.card?.title} (
+                  {menu?.card?.card?.itemCards?.length})
+                </span>{" "}
+                <span>🔻</span>
               </div>
+
+              {menu?.card?.card?.itemCards?.map((item, index) => (
+                <div className="pl-2 bg-white" key={index}>
+                  {index > 0 && (
+                    <div className="border-gray-300 border-b"></div>
+                  )}
+                  <Item item={item} text={"Add"} />
+                </div>
+              ))}
+              <div></div>
             </div>
           ))}
       </div>
