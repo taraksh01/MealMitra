@@ -78,7 +78,6 @@ const Body = () => {
               ) : (
                 <Restaurant restData={restaurant?.info} />
               )}
-              {console.log(restaurant.info)}
             </Link>
           ))}
         </div>
